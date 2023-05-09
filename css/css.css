@@ -1,0 +1,134 @@
+*{
+  font-family: 'Times New Roman', Times, serif;
+}
+body{
+  position: relative;
+  background-color: aliceblue;
+}
+footer {
+  margin-top: 25px;
+  padding-top: 10px;
+    text-align: center;
+    width: 100%;
+    bottom: 0px;
+    background-color: gray;
+}
+.iconos {
+  padding-left: 10px;
+  padding-right: 10px; 
+}
+
+.pasafoto4{
+  width: 1024px;
+  height: 684px;
+  margin: 50px auto 0;
+  overflow: hidden;
+
+}
+.pasafoto4 ul {
+  display: flex;
+  padding: 0;
+  width: 400%;
+  animation: pasar 16s infinite ease-in-out ;
+}
+.pasafoto4 li {
+  list-style: none;
+  width: 100%;
+}
+.pasafoto4 img {
+  width: 100%;
+}
+
+.pasafoto5{
+  width: 1024px;
+  height: 684px;
+  margin: 50px auto 0;
+  overflow: hidden;
+
+}
+.pasafoto5 ul {
+  display: flex;
+  padding: 0;
+  width: 500%;
+  animation: pasar5 20s infinite ease-in-out ;
+}
+.pasafoto5 li {
+  list-style: none;
+  width: 100%;
+}
+.pasafoto5 img {
+  width: 100%;
+}
+
+.pasafoto6{
+  width: 1024px;
+  height: 684px;
+  margin: 50px auto 0;
+  overflow: hidden;
+
+}
+.pasafoto6 ul {
+  display: flex;
+  padding: 0;
+  width: 600%;
+  animation: pasar6 24s infinite ease-in-out ;
+}
+.pasafoto6 li {
+  list-style: none;
+  width: 100%;
+}
+.pasafoto6 img {
+  width: 100%;
+}
+
+@keyframes pasar {
+  0% {margin-left: 0%;}
+  20% {margin-left: 0%;}
+
+  25% {margin-left: -100%;}
+  45% {margin-left: -100%;}
+
+  50% {margin-left: -200%;}
+  70% {margin-left: -200%;}
+
+  75% {margin-left: -300%;}
+  100% {margin-left: -300%;}
+
+}
+
+@keyframes pasar5 {
+  0% {margin-left: 0%;}
+  15% {margin-left: 0%;}
+
+  20% {margin-left: -100%;}
+  35% {margin-left: -100%;}
+
+  40% {margin-left: -200%;}
+  55% {margin-left: -200%;}
+
+  60% {margin-left: -300%;}
+  75% {margin-left: -300%;}
+
+  80% {margin-left: -400%;}
+  100% {margin-left: -400%;}
+}
+
+@keyframes pasar6 {
+  0% {margin-left: 0%;}
+  15% {margin-left: 0%;}
+
+  16.66% {margin-left: -100%;}
+  30% {margin-left: -100%;}
+
+  33.33% {margin-left: -200%;}
+  46% {margin-left: -200%;}
+
+  50% {margin-left: -300%;}
+  63.33% {margin-left: -300%;}
+
+  66.66% {margin-left: -400%;}
+  80% {margin-left: -400%;}
+
+  83.33% {margin-left: -500%;}
+  100% {margin-left: -500%;}
+}
