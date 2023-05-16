@@ -17,7 +17,14 @@ footer {
   padding-left: 10px;
   padding-right: 10px; 
 }
-
+.sportivo h1{
+  color: green;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.sportivo p{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
 .pasafoto4{
   width: 1024px;
   height: 684px;
