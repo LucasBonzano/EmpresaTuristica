@@ -116,3 +116,12 @@ nav ul li a:hover {
 .nav-index ul li a {
   padding: 10px 20px;
 }
+
+.content form {
+  background-color: #FFF;
+  margin: 15px;
+}
+
+.content form legend{
+  font-weight: bold;
+}
