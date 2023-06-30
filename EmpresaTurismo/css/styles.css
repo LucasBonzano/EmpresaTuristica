@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   margin: 0;
   padding: 0;
   display: flex;
@@ -80,9 +80,6 @@ nav ul ul.submenu li a:hover {
   background-color: #005C53;
 }
 
-nav ul li a:hover {
-  color: #DBF227;
-}
 
 .content {
   padding: 20px;
@@ -125,7 +122,7 @@ footer {
 form {
   padding: 20px;
   text-align: center;
-  background-color: rgba(0, 225, 255, 0.7);
+  background-color: rgba(255, 225, 255, 0.7);
   color: #333;
   margin: 50px auto;
   max-width: 800px;
