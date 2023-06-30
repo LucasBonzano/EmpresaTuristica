@@ -1,37 +1,48 @@
-const submenus = document.querySelectorAll(".submenu");
+document.addEventListener("DOMContentLoaded", function() {
+  const submenus = document.querySelectorAll(".submenu");
 
-submenus.forEach((submenu) => {
-  const parentLink = submenu.previousElementSibling;
+  submenus.forEach((submenu) => {
+    const parentLink = submenu.previousElementSibling;
 
-  parentLink.addEventListener("click", (event) => {
-    event.preventDefault();
-    submenu.classList.toggle("active");
+    parentLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      submenu.classList.toggle("active");
+    });
   });
-});
 
-// Datos que deseas enviar al archivo PHP
-const datosEnviar = {
-  nombre: 'John',
-  apellido: 'Doe',
-  mail: 'johndoe@example.com',
-  dni: '123456789',
-  consulta: 'Consulta de ejemplo'
-};
+  const formulario = document.getElementById("formulario");
 
-fetch('../../conexionbasededatos/funciones.php', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*' // Configuración de la cabecera CORS
-  },
-  body: JSON.stringify(datosEnviar)
-})
-.then(response => response.json())
-.then(data => {
-  // Manejar la respuesta del servidor
-  console.log(data);
-})
-.catch(error => {
-  // Manejar errores de la solicitud
-  console.error(error);
+  formulario.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
+    const mail = document.getElementById("mail").value;
+    const dni = document.getElementById("dni").value;
+    const consulta = document.getElementById("consulta").value;
+
+    const datosEnviar = {
+      nombre: nombre,
+      apellido: apellido,
+      mail: mail,
+      dni: dni,
+      consulta: consulta
+    };
+
+    fetch('../../conexionbasededatos/funciones.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(datosEnviar)
+    })
+    .then(response => response.text())
+    .then(data => {
+      console.log(data);
+      formulario.reset(); // Restablecer el formulario después de enviar los datos
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  });
 });
