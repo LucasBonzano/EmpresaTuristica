@@ -10,7 +10,7 @@ body {
   background-position: center;
 }
 
-.contactos{
+.contactos {
   background-image: url("https://www.lavoz.com.ar/resizer/6aEWTUN7ADuJNxyjlxgCF7xYivY=/980x640/smart/filters:quality(75):format(webp)/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/77QT6EXNHZHU7L3XWAW7G2G35A.jpg");
 }
 
@@ -36,7 +36,7 @@ nav ul li {
 
 nav ul li a {
   display: block;
-  color: #FFF;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -63,13 +63,14 @@ nav ul ul.submenu {
 }
 
 nav ul ul.submenu li {
+  
   float: none;
   position: relative;
 }
 
 nav ul ul.submenu li a {
   padding: 10px 15px;
-  color: #FFF;
+  color: white;
   font-weight: bold;
   text-transform: uppercase;
   transition: background-color 0.3s ease;
@@ -77,6 +78,10 @@ nav ul ul.submenu li a {
 
 nav ul ul.submenu li a:hover {
   background-color: #005C53;
+}
+
+nav ul li a:hover {
+  color: #DBF227;
 }
 
 .content {
@@ -109,10 +114,6 @@ footer {
   font-size: 14px;
 }
 
-nav ul li a:hover {
-  color: #DBF227;
-}
-
 .nav-index {
   background-color: rgba(255, 255, 255, 0.5);
 }
@@ -120,8 +121,6 @@ nav ul li a:hover {
 .nav-index ul li a {
   padding: 10px 20px;
 }
-
-
 
 form {
   padding: 20px;
@@ -132,7 +131,8 @@ form {
   max-width: 800px;
   font-weight: bold;
 }
-.contenedores{
+
+.contenedores {
   border-radius: 6px;
   margin-bottom: 10px;
   width: 100%;
