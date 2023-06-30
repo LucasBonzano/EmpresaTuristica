@@ -8,4 +8,4 @@ En Drive distintas avtividades y resumenes: https://drive.google.com/drive/folde
 Este Github para la carga del sitio web
 El video de explicación del proyecto esta en youtube: https://www.youtube.com/watch?v=lS_jjWAE52w
 
-Despues tambien intentamos sumar angular que era un framework que proponia el curso pero no pudimos hacer la conexión a la base de datos: https://drive.google.com/drive/folders/1kJu3bfjTpKjh0TMg8W4LTLJl-XvLDuL-?usp=sharing
+Despues tambien intentamos sumar angular que era un framework que proponia el curso pero no pudimos hacer la conexión a la base de datos y lo descartamos volviendo a una version anterio del proyecto: https://drive.google.com/drive/folders/1kJu3bfjTpKjh0TMg8W4LTLJl-XvLDuL-?usp=sharing
