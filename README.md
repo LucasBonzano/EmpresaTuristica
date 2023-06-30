@@ -1,5 +1,6 @@
 # EmpresaTuristica
 Aca se va a subir todo lo que editemos del trabajo del curso full stack siempre que editen algo acuerdense de tirar el git push para mostrar los cambios en el repositorio.
+
 #**Proyecto final**
 Bueno la finalizacion del trabajo concluye en un sitio web turistico de la ciudad retomando las actividades que se daban en las masterclass, la presentación de las actividades estan en:
 
