@@ -1,8 +1,8 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE, UPDATE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE, UPDATE");
 header('Content-Type: text/html; charset=UTF-8');
 
 $method = $_SERVER['REQUEST_METHOD'];
@@ -13,7 +13,7 @@ $password = "";
 $dbname = "formulario";
 
 // Establecer conexión a la base de datos
-$connection = mysqli_connect($servername, $username, $password, $dbname);
+$connection = mysqli_connect($servername, $username, $password, $dbname, $id);
 
 // Verificar errores en la conexión a la base de datos
 if ($connection->connect_error) {
@@ -31,10 +31,21 @@ $apellido = $data['apellido'];
 $mail = $data['mail'];
 $dni = $data['dni'];
 $consulta = $data['consulta'];
+$id = $data['id'];
 
 // Realizar la inserción de datos en la base de datos
 $insertQuery = "INSERT INTO contacto(nombre, apellido, mail, dni, consulta, id) VALUES ('$nombre', '$apellido', '$mail', '$dni', '$consulta', '')";
 mysqli_query($connection, $insertQuery);
+
+// Eliminar datos de la base de datos
+
+$deleteQuery = "DELETE INTO contacto(nombre, apellido, mail, dni, consulta, id) VALUES ('$nombre', '$apellido', '$mail', '$dni', '$consulta', '') where id = '$id' ";
+mysqli_query($connection, $deleteQuery);
+
+// Actualizar datos de la base de datos
+
+$updateQuery = "UPDATE INTO contacto(nombre, apellido, mail, dni, consulta, id) VALUES ('$nombre', '$apellido', '$mail', '$dni', '$consulta', '') where id = '$id' ";
+mysqli_query($connection, $updateQuery);
 
 // Cerrar la conexión a la base de datos
 mysqli_close($connection);
