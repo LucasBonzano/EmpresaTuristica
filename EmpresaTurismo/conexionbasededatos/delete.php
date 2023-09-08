@@ -13,7 +13,7 @@ $password = "";
 $dbname = "formulario";
 
 // Establecer conexión a la base de datos
-$connection = mysqli_connect($servername, $username, $password, $dbname, $id);
+$connection = mysqli_connect($servername, $username, $password, $dbname);
 
 // Verificar errores en la conexión a la base de datos
 if ($connection->connect_error) {

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const formulario = document.getElementById("formulario");
 
-  formulario.addEventListener("submit", (event) => {
+  formulario.getElementById('subir').addEventListener("submit", (event) => {
     event.preventDefault();
 
     const nombre = document.getElementById("nombre").value;
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
       consulta: consulta
     };
 
-    fetch('../../conexionbasededatos/funciones.php', {
+    fetch('../../conexionbasededatos/insert.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
       console.error(error);
     });
   });
+
   formulario.addEventListener("update", (event) => {
     event.preventDefault();
 
@@ -77,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .catch(error => {
       console.error(error);
     });
+
   });
   formulario.addEventListener("read", (event) => {
     event.preventDefault();
@@ -144,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
       console.error(error);
     });
   });
+  
   formulario.addEventListener("delete", (event) => {
     event.preventDefault();
 
