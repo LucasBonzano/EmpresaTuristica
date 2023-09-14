@@ -11,11 +11,7 @@ $password = "";
 $dbname = "formulario";
 
 // Establecer conexión a la base de datos
-<<<<<<< HEAD:conexionbasededatos/insert.php
 $connection = mysqli_connect($servername, $username, $password, $dbname);
-=======
-$connection = mysqli_connect($servername, $username, $password, $dbname,);
->>>>>>> 3c257be04c61ce71a13ff960af8cef5c7711d463:EmpresaTurismo/conexionbasededatos/insert.php
 
 // Verificar errores en la conexión a la base de datos
 if ($connection->connect_error) {
