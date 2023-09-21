@@ -40,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
       console.log(data);
       formulario.reset(); // Restablecer el formulario después de enviar los datos
+
+      // Desencadenar el evento personalizado "insert" después de la inserción
+      var insertEvent = new Event("insert");
+      formulario.dispatchEvent(insertEvent);
     })
     .catch(error => {
       console.error(error);
@@ -74,12 +78,16 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
       console.log(data);
       formulario.reset(); // Restablecer el formulario después de enviar los datos
+
+      // Desencadenar el evento personalizado "update" después de la actualización
+      var updateEvent = new Event("update");
+      formulario.dispatchEvent(updateEvent);
     })
     .catch(error => {
       console.error(error);
     });
-    
   });
+
   formulario.addEventListener("read", (event) => {
     event.preventDefault();
 
@@ -108,11 +116,16 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
       console.log(data);
       formulario.reset(); // Restablecer el formulario después de enviar los datos
+
+      // Desencadenar el evento personalizado "read" después de la lectura
+      var readEvent = new Event("read");
+      formulario.dispatchEvent(readEvent);
     })
     .catch(error => {
       console.error(error);
     });
   });
+
   formulario.addEventListener("delete", (event) => {
     event.preventDefault();
 
@@ -141,6 +154,10 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
       console.log(data);
       formulario.reset(); // Restablecer el formulario después de enviar los datos
+
+      // Desencadenar el evento personalizado "delete" después de la eliminación
+      var deleteEvent = new Event("delete");
+      formulario.dispatchEvent(deleteEvent);
     })
     .catch(error => {
       console.error(error);
