@@ -29,6 +29,16 @@ document.addEventListener("DOMContentLoaded", function() {
       consulta: consulta
     };
 
+    // Verificar si el botón presionado es "Eliminar"
+    if (event.submitter.id === "delete") {
+      // Verificar si el campo "mail" está vacío
+      if (!mail) {
+        alert("El campo 'mail' es obligatorio al eliminar.");
+        return; // Evitar que se envíe la solicitud si falta el campo "mail"
+      }
+    }
+
+    // Realizar la solicitud correspondiente al botón presionado
     fetch('../../conexionbasededatos/insert.php', {
       method: 'POST',
       headers: {
@@ -40,124 +50,36 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
       console.log(data);
       formulario.reset(); // Restablecer el formulario después de enviar los datos
-
-      // Desencadenar el evento personalizado "insert" después de la inserción
-      var insertEvent = new Event("insert");
-      formulario.dispatchEvent(insertEvent);
     })
     .catch(error => {
       console.error(error);
     });
   });
 
-  formulario.addEventListener("update", (event) => {
-    event.preventDefault();
+  // Resto del código para los botones "Leer" y "Actualizar"
+  // ...
 
-    const nombre = document.getElementById("nombre").value;
-    const apellido = document.getElementById("apellido").value;
-    const mail = document.getElementById("mail").value;
-    const dni = document.getElementById("dni").value;
-    const consulta = document.getElementById("consulta").value;
+  // Lógica para el botón "Eliminar"
+  document.getElementById("delete").addEventListener("click", () => {
+    // Verificar si el campo "mail" está vacío
+    var mail = document.getElementById("mail").value;
+    if (!mail) {
+      alert("El campo 'mail' es obligatorio al eliminar.");
+      return; // Evitar que se envíe la solicitud si falta el campo "mail"
+    }
 
-    const datosEnviar = {
-      nombre: nombre,
-      apellido: apellido,
-      mail: mail,
-      dni: dni,
-      consulta: consulta
-    };
-
-    fetch('../../conexionbasededatos/update.php', {
-      method: 'POST',
+    // Realizar la solicitud correspondiente al botón "Eliminar"
+    fetch('../../conexionbasededatos/crud.php', {
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(datosEnviar)
+      body: JSON.stringify({ mail: mail }) // Enviar solo el campo "mail"
     })
     .then(response => response.text())
     .then(data => {
       console.log(data);
-      formulario.reset(); // Restablecer el formulario después de enviar los datos
-
-      // Desencadenar el evento personalizado "update" después de la actualización
-      var updateEvent = new Event("update");
-      formulario.dispatchEvent(updateEvent);
-    })
-    .catch(error => {
-      console.error(error);
-    });
-  });
-
-  formulario.addEventListener("read", (event) => {
-    event.preventDefault();
-
-    const nombre = document.getElementById("nombre").value;
-    const apellido = document.getElementById("apellido").value;
-    const mail = document.getElementById("mail").value;
-    const dni = document.getElementById("dni").value;
-    const consulta = document.getElementById("consulta").value;
-
-    const datosEnviar = {
-      nombre: nombre,
-      apellido: apellido,
-      mail: mail,
-      dni: dni,
-      consulta: consulta
-    };
-
-    fetch('../../conexionbasededatos/read.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(datosEnviar)
-    })
-    .then(response => response.text())
-    .then(data => {
-      console.log(data);
-      formulario.reset(); // Restablecer el formulario después de enviar los datos
-
-      // Desencadenar el evento personalizado "read" después de la lectura
-      var readEvent = new Event("read");
-      formulario.dispatchEvent(readEvent);
-    })
-    .catch(error => {
-      console.error(error);
-    });
-  });
-
-  formulario.addEventListener("delete", (event) => {
-    event.preventDefault();
-
-    const nombre = document.getElementById("nombre").value;
-    const apellido = document.getElementById("apellido").value;
-    const mail = document.getElementById("mail").value;
-    const dni = document.getElementById("dni").value;
-    const consulta = document.getElementById("consulta").value;
-
-    const datosEnviar = {
-      nombre: nombre,
-      apellido: apellido,
-      mail: mail,
-      dni: dni,
-      consulta: consulta
-    };
-
-    fetch('../../conexionbasededatos/delete.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(datosEnviar)
-    })
-    .then(response => response.text())
-    .then(data => {
-      console.log(data);
-      formulario.reset(); // Restablecer el formulario después de enviar los datos
-
-      // Desencadenar el evento personalizado "delete" después de la eliminación
-      var deleteEvent = new Event("delete");
-      formulario.dispatchEvent(deleteEvent);
+      formulario.reset(); // Restablecer el formulario después de eliminar
     })
     .catch(error => {
       console.error(error);
