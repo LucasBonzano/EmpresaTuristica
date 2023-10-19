@@ -29,17 +29,17 @@ document.addEventListener("DOMContentLoaded", function() {
       consulta: consulta
     };
 
-    // Verificar si el botón presionado es "Eliminar"
+    // Verificar si el botón presionado es "Subir"
     if (event.submitter.id === "delete") {
       // Verificar si el campo "mail" está vacío
       if (!mail) {
-        alert("El campo 'mail' es obligatorio al eliminar.");
+        alert("El campo 'mail' es obligatorio al subir.");
         return; // Evitar que se envíe la solicitud si falta el campo "mail"
       }
     }
 
     // Realizar la solicitud correspondiente al botón presionado
-    fetch('../../conexionbasededatos/insert.php', {
+    fetch('../../conexionbasededatos/crud.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -55,9 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
       console.error(error);
     });
   });
-
-  // Resto del código para los botones "Leer" y "Actualizar"
-  // ...
 
   // Lógica para el botón "Eliminar"
   document.getElementById("delete").addEventListener("click", () => {
@@ -83,6 +80,68 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .catch(error => {
       console.error(error);
+
     });
   });
+
+
+  document.getElementById("update").addEventListener("click", () => {
+
+    var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
+    var mail = document.getElementById("mail").value;
+    var dni = document.getElementById("dni").value;
+    var consulta = document.getElementById("consulta").value;
+
+    var datosEnviar = {
+      nombre: nombre,
+      apellido: apellido,
+      mail: mail,
+      dni: dni,
+      consulta: consulta
+    };
+  
+    fetch('../../conexionbasededatos/crud.php', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(datosEnviar)
+    })
+    .then(response => response.text())
+    .then(data => {
+      console.log(data);
+      formulario.reset();
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  });
+  
+  document.getElementById("read").addEventListener("click", () => {
+
+    var mail = document.getElementById("mail").value;
+
+    if (!mail) {
+      alert("El campo 'mail' es obligatorio al leer.");
+      return;
+    }
+
+    fetch('../../conexionbasededatos/crud.php', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({mail: mail})
+    })
+    .then(response => response.text())
+    .then(data => {
+      console.log(data);
+      formulario.reset();
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  });
+
 });

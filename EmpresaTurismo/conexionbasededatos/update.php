@@ -28,7 +28,9 @@ $dni = mysqli_real_escape_string($connection, $data['dni']);
 $consulta = mysqli_real_escape_string($connection, $data['consulta']);
 
 // Actualizar datos en la base de datos
-$updateQuery = "UPDATE contacto SET nombre='$nombre', apellido='$apellido', mail='$mail', dni='$dni', consulta='$consulta' WHERE id='$id'";
+
+$updateQuery = "UPDATE contacto(nombre, apellido, dni,) SET nombre='$nombre', apellido='$apellido', dni='$dni', consulta='$consulta' WHERE mail= '$mail'";
+
 if (mysqli_query($connection, $updateQuery)) {
     $response = array('status' => 'success', 'message' => 'Datos actualizados correctamente');
 } else {
