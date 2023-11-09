@@ -25,12 +25,11 @@ $apellido = $data['apellido'];
 $mail = $data['mail'];
 $dni = $data['dni'];
 $consulta = $data['consulta'];
-$id = $data['id'];
 
 // Manejo de operaciones CRUD
 if ($method === 'POST') {
     
-    $insertQuery = "INSERT INTO contacto(nombre, apellido, mail, dni, consulta, id) VALUES ('$nombre', '$apellido', '$mail', '$dni', '$consulta', '$id')";
+    $insertQuery = "INSERT INTO contacto(nombre, apellido, mail, dni, consulta) VALUES ('$nombre', '$apellido', '$mail', '$dni', '$consulta')";
     
     if (mysqli_query($connection, $insertQuery)) {
         $response = array('status' => 'success', 'message' => 'Datos insertados correctamente');
@@ -41,7 +40,7 @@ if ($method === 'POST') {
     }
 } elseif ($method === 'GET') {
 
-    $selectQuery = "SELECT * FROM contacto where mail = '$mail'";
+    $selectQuery = "SELECT * FROM contacto WHERE mail = '$mail'";
     $result = mysqli_query($connection, $selectQuery);
     
     $data = array();
@@ -50,6 +49,7 @@ if ($method === 'POST') {
     }
     
     echo json_encode($data);
+    
 } elseif ($method === 'DELETE') {
 
     $deleteQuery = "DELETE FROM contacto WHERE mail = '$mail'";
@@ -61,7 +61,7 @@ if ($method === 'POST') {
         $response = array('status' => 'error', 'message' => 'Error al eliminar datos: ' . mysqli_error($connection));
         echo json_encode($response);
     }
-
+    
 } elseif ($method === 'PUT') {
     
     $updateQuery = "UPDATE contacto SET nombre='$nombre', apellido='$apellido', dni='$dni', consulta='$consulta' WHERE mail='$mail'";

@@ -32,7 +32,7 @@
     </ul>
   </nav>
 
-  <form id="formulario" action="" method="post">
+  <form id="formulario" action="" method="">
     <fieldset>
       <legend>Area de Contacto:</legend>
       <ul>
@@ -57,10 +57,11 @@
           <input type="text" id="consulta" name="consulta" placeholder="Ingresa tu consulta" class="contenedores">
         </li>
       </ul>    
-      <button id="subir">Enviar</button>
-      <button id="read">Leer</button>
-      <button id="delete">Eliminar</button>
-      <button id="update">Actualizar</button>
+      <button id="subir" name="action" value="send">Enviar</button>
+      <button id="read" name="action" value="read">Leer</button>
+      <button id="delete" name="action" value="delete">Eliminar</button>
+      <button id="update" name="action" value="update">Actualizar</button>
+      
     </fieldset>
   </form>
 
